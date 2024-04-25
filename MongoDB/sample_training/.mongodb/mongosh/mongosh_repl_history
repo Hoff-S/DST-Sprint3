@@ -1,0 +1,314 @@
+])
+    }
+        $sort:{"nb_cie":-1}
+    {
+    },
+        }
+            "nb_cie":{$sum:1}
+            "_id":"$founded_year",
+        {
+        $group:
+    {
+    },
+        }
+            "founded_year":{$gt:1999}
+            "offices.city":"Paris",
+        {
+        $match:
+    {
+db.cie.aggregate([
+db.cie.aggregate([ { $match: { "offices.city": "Paris", "founded_year": { $gt: 1999 } } }, { $group: { "_id": "$founded_year", "nb_cie": { $sum: 1 } } }] )
+db.cie.aggregate([ { $match: { "offices.city": "Paris", "founded_year": { $gt: 1999 } } }, { $group: { "_id": "$founded_year", "_id": { $sum: 1 } } }, { $sort: { "founded_year": 1 } }] )
+db.cie.aggregate([ { $match: { "offices.city": "Paris", "founded_year": { $gt: 1999 } } }, { $group: { "_id": "$founded_year", "_id": { $count: 1 } } }, { $sort: { "founded_year": 1 } }] )
+db.cie.aggregate([ { $match: { "offices.city": "Paris" } }])
+db.cie.aggregate([ { $group: { "_id": "$founded_year", "nb_cie": { $sum: 1 } } }, { $sort: { 'nb_cie': 1 } }] )
+db.cie.aggregate([ { $group: { "_id": "$founded_year", "nb_cie": { $sum: 1 } } }, { $sort: { nb_cie: 1 } }] )
+db.cie.aggregate([ { $group: { "_id": "$founded_year", "nb_cie": { $sum: 1 } } }] )
+db.cie.aggregate([ { $group: { "_id": "$founded_year" } }] )
+db.cie.aggregate([ { $group: { "id": "$founded_year" } }] )
+db.cie.aggregate([ { $match: { $and: [ { "relationships.person.first_name": "Elon" }, { "relationships.person.last_name": "Musk" }] } }, { $project: { "_id": 1, "society": "$name", "leader": { 'name': { $concat: [ { $arrayElemAt: ["$relationships.person.first_name", 0] }, " ", { $arrayElemAt: ["$relationships.person.last_name", 0] }] } }, "title": { $arrayElemAt: ["$relationships.title", 0] } } }] )
+db.cie.aggregate([ { $match: { $and: [ { "relationships.person.first_name": "Elon" }, { "relationships.person.last_name": "Musk" }] } }, { $project: { "_id": 1, "society": "$name", "leader": { 'name': { $concat: [ { $arrayElemAt: ["$relationships.person.first_name", 0] }, " ", { $arrayElemAt: ["$relationships.person.last_name", 0] }], "title": { $arrayElemAt: ["$relationships.title", 0] } } } } }] )
+db.cie.aggregate([ { $match: { $and: [ { "relationships.person.first_name": "Elon" }, { "relationships.person.last_name": "Musk" }] } }, { $project: { "_id": 1, "society": "$name", "director_name": { $concat: [ { $arrayElemAt: "$relationships.0.person.first_name" }, " ", { $arrayElemAt: "$relationships.0.person.first_name" }], "title": { $arrayElemAt: "$relationships.0.title" } } } }] )
+    ]
+    }
+      }}
+{ $arrayElemAt: {"$relationships.0.title";} }
+        "title":
+        ],
+" ", {$arrayElemAt : {"$relationships.0.person.first_name"}}
+db.cie.aggregate([ {$match : {$and : [ {"relationships.person.first_name":"Elon"}, {"relationships.person.last_name":"Musk"} ] } }, {$project : {"_id":1,"society":"$name", "director_name": {$concat : [ {$arrayElemAt : {"$relationships.0.person.first_name"}},
+$concat -help
+concat -help
+db.cie.findOne()
+db.cie.aggregate([ { $match: { $and: [ { "relationships.person.first_name": "Elon" }, { "relationships.person.last_name": "Musk" }] } }, { $project: { "_id": 1, "society": "$name", "employee": { "first_name": "$relationships.person.first_name", "last_name": "$relationships.person.last_name" } } }] )
+show collections
+db.ciettt.drop()
+ciettt.drop()
+show collections
+use sample
+show dbs
+)
+  {"name":1, "_id":0}
+      {"price_currency_code" : {"$ne":"USD"}}}},
+    { "$elemMatch": 
+  {"acquisitions": 
+db.cie.find(
+db.cie.find({'acquisitions':{$elemMatch:{'price_currency_code':{$ne:'USD'}}}},{'name':1})
+db.cie.find({'acquisitions':{$elemMatch:{$ne:['$price_currency_code','USD']}}},{'name':1})
+db.cie.find({'acquisitions':{$elemMatch:{'acquired_year':2010,'acquired_month':3,'acquired_day':2}}},{'_id':0,'name':1})
+db.cie.find({'acquisitions':{$elemMatch:[{'acquired_year':2010},{'acquired_month':3},{'acquired_day':2}]}},{'_id':0,'name':1})
+db.cie.find({{'acquisitions':{$elemMatch:[{'acquired_year':2010},{'acquired_month':3},{'acquired_day':2}]}}},{'_id':0,'name':1})
+db.cie.find({$elemMatch:[{'acquired_year':2010},{'acquired_month':3},{'acquired_day':2}]},{'_id':0,'name':1})
+db.cie.find({$elemMatch:[{'acquired_year':2010},{'acquired_month':3},{'acquired_day':2}]},{'_id':0,'company.name':1})
+db.cie.find({},{'company.name':1})
+db.cie.find({'acquisitions.0.acquired_year':{$gt:2007}},{'name':1,'founded_year':1})
+db.cie.find({'$acquisitions.0.acquired_year':{$gt:2007}},{'name':1,'founded_year':1})
+db.cie.find({{{'name':'Sony'},{'acquisitions':1}}.acquisition.0})
+db.cie.find({{'name':'Sony'},{'acquisitions':1}}.acquisition.0)
+db.cie.find({'name':'Sony'},{'acquisitions':1})
+db.cie.find({'name':'Sony'},{'acquisitions:1'})
+db.cie.findOne()
+db.zips.find({'state':'TX'},{'pop':1,'city':1})
+db.zips.findOne()
+db.grades.find({},{'_id':1,'scores':1}).sort({'scores.score':-1})
+db.grades.find({},{'_id':1,'scores':1})
+db.grades.find({},{'_id':1,'score':1})
+db.grades.find({},{'_id':0,'$score':1})
+db.grades.find({},{'_id':0,'score':1})
+db.zips.find({},{'_id':0,'$scores.score':1})
+db.zips.find({},{'_id':0,'scores.score':1})
+db.zips.find({},{'_id':0,'score.score':1})
+db.zips.find({},{'_id':0,'score':1})
+db.zips.find({},{'score':1})
+db.zips.find({},{'score':1}).sort({'score':-1})
+db.zips.find({},{'score':1}).sort('score':-1)
+db.grades.find({$expr:{$eq:['$student_id','$class_id']}})
+db.grades.find({$expr:{$eq:['student_id','class_id']}})
+db.zips.find({$and: [{'pop':{$gt:10000}},{'pop':{$lt:20000}}]})
+db.zips.find({'pop':{$gte:3000}})
+db.grades.find({ '_id': ObjectId('56d5f7eb604eb380b0d8d9c8') })
+db.grades.updateOne({'_id':ObjectId('56d5f7eb604eb380b0d8d9c8')},{$push: {'scores': {'exam':'quizz','score':100.0}}})
+sample> db.grades.updateOne({'_id':ObjectId('56d5f7eb604eb380b0d8d9c8')},{$push: {'scores': {'exam':'quizz','score':100.0}}})
+sample> db.grades.updateOne({'_id':ObjectId('56d5f7eb604eb380b0d8d9c8'},{$push: {'scores': {'exam':'quizz','score':100.0}}})
+sample> db.grades.updateOne({'_id':ObjectId("56d5f7eb604eb380b0d8d9c8},{$push: {'scores': {'exam':'quizz','score':100.0}}})
+db.grades.find({ '_id': ObjectId('56d5f7eb604eb380b0d8d9c8') })
+db.grades.findOne("_id"=ObjectId("56d5f7eb604eb380b0d8d9c8"))
+db.grades.findOne("_id":'ObjectId("56d5f7eb604eb380b0d8d9c8")')
+db.grades.findOne("_id":ObjectId("56d5f7eb604eb380b0d8d9c8"))
+use sample
+db.grades.findOne({'id':'"6d5f7eb604eb380b0d8d9c8"})
+db.grades.findOne()
+db.grades.updateOne({'_id':'ObjectId("56d5f7eb604eb380b0d8d9c8'},{$push: {'scores': {'exam':'quizz','score':100.0}}})
+db.grades.findOne()
+use sample
+db.zips.find({'state':'MA'})
+db.zips.findOne({'state':'MA'})
+db.zips.findOne({'pop':3450})
+db.zips.findOne()
+-h
+-help
+--help
+show collections
+use sample
+show dbs
+exit
+mongoimport -d sample -c zips --file /data/db/zips.json
+show dbs
+show db
+show collections
+use admin
+show collections
+use sample
+show collections
+show dbs command
+show dbs
+db.zips.find({"city":"BOSTON"},{"city":1}).explain("executionStats")
+db.zips.createIndex({"city":1})
+db.zips.find({"city":"BOSTON"},{"city":1}).explain("executionStats")
+use sample
+db.zips.find({"city":"BOSTON"},{"city":1}).explain("executionStats")
+db.cie.aggregate([{$match:{"offices.city":"Paris","founded_year":{$gt:1999}}},{$group:{"_id":"$founded_year","nb_cie":{$sum:1}}},{$sort: {nb_cie:-1}}])
+db.cie.aggregate([{$match:{"offices.city":"Paris","founded_year":{$gt:1999}},{$group:{"_id":"$founded_year","nb_cie":{$sum:1}},{$sort: {nb_cie:1}}])
+db.cie.aggregate([{$match:{"offices.city":"Paris"},{"founded_year":{$gt:1999}},{$group:{"_id":"$founded_year","nb_cie":{$sum:1}},{$sort: {nb_cie:1}}])
+db.cie.aggregate([{$match:{{"offices.city":"Paris"},{"founded_year":{$gt:1999}}},{$group:{"_id":"$founded_year","nb_cie":{$sum:1}},{$sort: {nb_cie:1}}])
+{$group: {"_id":"$founded_year","nb_cie":{$sum:1}}, {$sort: {nb_cie:1}}
+{"founded_year":{$gt:1999} } },
+db.cie.aggregate([ {$match: { {"offices.city":"Paris"},
+db.cie.aggregate([{$match:{"offices.city":"Paris"},"founded_year":{$gt:1999}, $group: {"_id":"$founded_year"}])
+db.cie.aggregate([ {$match: {"offices.city":"Paris"},"founded_year":{$gt:1999}, $group: {"_id":"$founded_year"}])
+db.cie.aggregate([ {$match: {"offices.city":"Paris"},"founded_year":{$gt:1999}, {$group: {"_id":"$founded_year"}}])
+)
+   ]
+db.cie.aggregate([ {$match: {"offices.city":"Paris"},"founded_year":{$gt:1999}, {$group: {"_id":"$founded_year"}}
+{$group: {"_id":"$founded_year"}} ]
+db.cie.aggregate([ {$match: {"offices.city":"Paris"},{"founded_year":{$gt:1999}},
+)
+{$group: {"_id":"founded_year"}} ]
+db.cie.aggregate([ {$match: {"offices.city":"Paris"},{"founded_year":{$gt:1999}},
+db.cie.aggregate([ { $match: { "offices.city": "Paris" } }, { $group: { "_id": "$founded_year" } }] )
+db.cie.aggregate([ { $match: { "offices.city": "Paris" } }, { $group: { "_id": "founded_year" } }] )
+)
+   ]
+db.cie.aggregate([ {$match: {"offices.city":"Paris"}}, $group: {"_id":"founded_year"}
+db.cie.find({"offices.city":'Paris'})
+db.cie.find({"offices.cities":'Paris'})
+db.cie.find({"offices.cities":'PA'})
+db.cie.find({"offices":'PA'})
+db.cie.find({"offices_city":'PA'})
+db.cie.find({"office_city":'PA'})
+db.cie.findOne({"office_city":'PA'})
+db.cie.findOne({"office_city"})
+db.cie.findOne("office_city")
+db.cie.findOne()
+db.cie.aggregate( [ { $group: { "_id": "$founded_year", "nb_cie": { $sum: 1 } } }, { $sort: { nb_cie: -1 } }] )
+db.cie.aggregate( [ { $group: { "_id": "$founded_year", "nb_cie":{$sum:1} } }] )
+db.cie.aggregate( [ { $group: { "_id": "$founded_year" } }] )
+db.cie.aggregate([ { $match: { $and: [ { "relationships.person.first_name": "Elon" }, { "relationships.person.last_name": "Musk" }] } }, { $project: { "_id": 1, "society": "$name", "leader": { "name": { $concat: [ { $arrayElemAt: ["$relationships.person.first_name", 0] }, " ", { $arrayElemAt: ["$relationships.person.last_name", 0] }] }, "title": { $arrayElemAt: ["$relationships.title", 0] } } } }] )
+db.cie.aggregate([ { $match: { $and: [ { "relationships.person.first_name": "Elon" }, { "relationships.person.last_name": "Musk" }] } }, { $project: { "_id": 1, "society": "$name", "leader": { "name": { $concat: [ { $arrayElemAt: ["$relationships.person.first_name", 0] }, " ", { $arrayElemAt: ["$relationships.person.last_name", 0] }] }, "title": { $arrayElemAt: ["$relationships.title", 0] } } } }] )
+db.cie.aggregate([ { $match: { $and: [ { "relationships.person.first_name": "Elon" }, { "relationships.person.last_name": "Musk" }] } }, { $project: { "_id": 1, "society": "$name", "leader": { "name": { $concat: [ { $arrayElemAt: ["$relationships.person.first_name", 0] }, " ", { $arrayElemAt: ["$relationships.person.last_name", 0] }] }, "title": { $arrayElemAt: ["relationships.title", 0] } } } }] )
+  ]
+  }
+    }}
+	"title":"relationships.title"
+	$arrayElemAt : ["last_name":"$relationships.person.last_name",0]],
+db.cie.aggregate([ {$match : {$and : [ {"relationships.person.first_name":"Elon"}, {"relationships.person.last_name":"Musk"} ] } }, {$project : {"_id":1,"society":"$name", "leader": $concat:[$arrayElemAt : ["first_name":"$relationships.person.first_name",0],
+db.cie.findOne()
+db.cie.aggregate([ { $match: { "offices.city": "Seattle" } }, { $project: { "_id": 1, "name": 1 } }] )
+use sample
+show dbs
+db.cie.aggregate([ { $match: { $and: [ { "relationships.person.first_name": "Elon" }, { "relationships.person.last_name": "Musk" }] } }, { $project: { "_id": 1, "society": "$name", "employee": { "first_name": "$relationships.0.person.first_name", "last_name": "$relationships.0.person.last_name" } } }] )
+db.cie.aggregate([ {$match : {$and : [ {"relationships.person.first_name":"Elon"}, {"relationships.person.last_name":"Musk"} ] } }, {$project : {"_id":1,"society":"$name","title":"$relationships.0.title"  }}])
+  ]
+db.cie.aggregate([ {$match : {$and : [ {"relationships.person.first_name":"Elon"}, {"relationships.person.last_name":"Musk"} ] } }, {$project : {"_id":1,"society":"$name","title":"$relationships.0.title"  }} }
+db.cie.findOne()
+db.cie.aggregate([ { $match: { $and: [ { "relationships.person.first_name": "Elon" }, { "relationships.person.last_name": "Musk" }] } }, { $project: { "_id": 1, "society": "$name", "employee": { "first_name": "$relationships.person.first_name", "last_name": "$relationships.person.last_name" } } }] )
+  ]
+  }
+    }}
+      "$relationships.0.last_name")
+db.cie.aggregate([ {$match : {$and : [ {"relationships.person.first_name":"Elon"}, {"relationships.person.last_name":"Musk"} ] } }, {$project : {"_id":1,"society":"$name", "leader": {concat("$relationships.0.first_name",
+use sample
+show dbs
+db.read__me_to_recover_your_data.read()
+db.read__me_to_recover_your_data.find()
+db.read__me_to_recover_your_data.findOne()
+db.findOne()
+use read__me_to_recover_your_data
+show dbs
+--help
+.findOne()
+db show
+read
+ls
+use read__me_to_recover_your_data
+read__me_to_recover_your_data
+cd read__me_to_recover_your_data
+show dbs
+db.zips.findOne()
+db.cie.findOne()
+db.cie.aggregate([ { $match: { $and: [ { "relationships.person.first_name": "Elon" }, { "relationships.person.last_name": "Musk" }] } }, { $project: { "_id": 1, "society": "$name", "employee": { "first_name": "$relationships.person.first_name", "last_name": "$relationships.person.last_name" } } }] )
+db.cie.aggregate([ { $match: { $and: [ { "relationships.person.first_name": "Elon" }, { "relationships.person.last_name": "Musk" }] } }, { $project: { "_id": 1, "name": 1 } }] )
+db.cie.findOne( )
+fdd( )
+f
+db.cie.aggregate([ { $match: { $and: [ { "relationships.person.first_name": "Elon" }, { "relationships.person.last_name": "Musk" }] } }, { $project: { "_id": 1, "name": 1 } }] )
+db.cie.aggregate([ { $match: { $and: [ { "relationships.person.first_name": "Elon" }, { "relationships.person.last_name": "Musk" }] }},{$project:{'$name':1}}] )
+db.cie.aggregate([ { $match: { $and: [ { "relationships.person.first_name": "Elon" }, { "relationships.person.last_name": "Musk" }] }},{'$name':1}] )
+db.cie.aggregate([ { $match: { $and: [ { "relationships.person.first_name": "Elon" }, { "relationships.person.last_name": "Musk" }] }},{'name':1}] )
+db.cie.aggregate([ { $match: { $and: [ { "relationships.person.first_name": "Elon" }, { "relationships.person.last_name": "Musk" }] }, {'name':1}}] )
+db.cie.aggregate([ { $match: { $and: [ { "relationships.person.first_name": "Elon" }, { "relationships.person.last_name": "Musk" }] } ,{'name':1}}] )
+db.cie.aggregate([ { $match: { $and: [ { "relationships.person.first_name": "Elon" }, { "relationships.person.last_name": "Musk" }] } }] )
+db.cie.find({'acquisitions':{$elemMatch:{'price_currency_code':{$ne:'USD'}}}},{'name':1})
+db.cie.find({'acquisitions':{'price_currency_code':{$ne:'USD'}}},{'name':1})
+db.cie.find({'acquisitions':{$ne:{'price_currency_code':'USD'}}},{'name':1})
+db.cie.find({'acquisitions':{$elemMatch:{'acquired_year':2010,'acquired_month':3,'acquired_day':2}}},{'name':1})
+db.cie.find({'acquisitions':{'$elemMatch':{'acquired_year':2010,'acquired_month':3,'acquired_day':2}}},{'name':1})
+db.cie.find({'acquisitions':{'$elemMatch':{'acquired_year':2010,'aquired_month':3,'acquired_day':2}}},{'name':1})
+db.cie.find({'acquisitions':{$elemMatch:{'acquired_year':2010,'aquired_month':3,'acquired_day':2}}},{'name':1})
+db.cie.find({'acquisitions.0.acquired_year':{$gt:2007}},{'name':1,'founded_year':1})
+db.cie.find({'acquisition.0.acquired_year':{$gt:2007}},{'name':1,'founded_year':1})
+db.cie.find({$gt:{'acquisition.0.acquired_year':2007}},{'name':1,'founded_year':1})
+db.cie.findOne()
+db.cie.find({ "name": "Sony" }, { "acquisitions.0": 1 })
+db.cie.find({ "name": "Sony" }, { "acquisitions.0": 1 }).acquisition.0
+db.cie.find({ "name": "Sony" }, { "acquisitions": 1 }).acquisition.0
+db.cie.find({ "name": "Sony" }, { "acquisitions": 1 })
+db.cie.findOne()
+db.cie.find()
+use sample
+mongoimport -d sample -c cie --file /data/db/companies.json
+db.zips.find({'state':'TX'},{'city':1,'pop':1})
+db.zips.find({},{'pop':1})
+db.zips.find({'state':'TX'},{'pop':1})
+db.zips.find({'state':'TX'},{'pop':-1})
+db.zips.find().count()
+db.zips.find().limit(5)
+db.grades.find().sort({'id_student':-1,'class_id':-1})
+db.grades.find().sort({'id_student':-1})
+db.grades.find().sort('id_student':-1)
+db.grades.find()
+db.grades.find({$expr:{$eq:['$student_id','$class_id']}})
+db.zips.find({$and:[{'state':'CA'},{$and:[{'pop':{$gt:10000}},{'pop':{$lt:20000}}]}]})
+db.zips.find({$and:[{'pop':{$gt:10000}},{'pop':{$lt:20000}}]})
+use sample
+db.zips.find({ $and: [ { "pop": { $lt: 20000 } }, { "pop": { $gt: 10000 } }] } )
+db.zips.find({$and:[{'pop':{$gt:10000}},{'pop':{$lt:20000}}]})
+db.zips.find({$and:[{'pop': {$gt : 10000}},{'pop': {$lt : 20000}}]})
+db.zips.find({$and :[{'pop': {$gt : 10000}},{'pop': {$lt : 20000}}]})
+db.zips.find({$and : [{'pop': {$gt : 10000}},{'pop': {$lt : 20000}}]})
+db.zips.find()
+db.zips.find({'pop': {$gte : 12678}})
+db.zips.findOne()
+use sample
+db.zips.findOne()
+db.findOne()
+db.zips.find({'pop' : {$gte : 12678}})
+use sample
+db.zips.find({'pop' : {$gte : 12678}})
+show dbs
+use sample
+show dbs
+db.zips.find({'pop' : {$gte : 12678}})
+db.zips.findOne()
+db.zips.find({"pop" : {$gte : 12678}})
+db.zips.find({'pop' : {$gte : 12678}})
+use sample
+exit
+show dbs
+db.test.findOne()
+db.zips.drop()
+db.zips.deleteMany({'state':'France'})
+db.grades.findOne({'_id':ObjectId("56d5f7eb604eb380b0d8d8d5")})
+db.grades.updateOne({'_id':ObjectId("56d5f7eb604eb380b0d8d8d5")},{$push: {'scores' : {'exam':'quizz', 'score': 100.0}}})
+db.grades.updateOne({'_id':ObjectId("56d5f7eb604eb380b0d8d8d5")},{$push{'scores' : {'exam':'quizz', 'score': 100.0}}})
+db.grades.findOne({'_id':ObjectId("56d5f7eb604eb380b0d8d8d5")})
+db.grades.findOne({'_id':ObjectId("56d5f7eb604eb380b0d8d8d5"})
+db.grades.findOne()
+show dbs
+use sample
+show dbs
+exit
+db.graves.findOne()
+db.graves.findone()
+use sample
+db.graves.findOne({'_id':ObjectId("56d5f7eb604eb380b0d8d9c8")})
+findOne({'_id':ObjectId("56d5f7eb604eb380b0d8d9c8")})
+findOne({'_id':ObjectId("56d5f7eb604eb380b0d8d9c8"})
+db.graves.updateOne({'_id':ObjectId("56d5f7eb604eb380b0d8d9c8")},{$push:{'scores':{'exam':'quizz', 'score': 100.0}}})
+{ type: 'quiz', score: 95.80410375967175 }, { type: 'homework', score: 89.62485475572984 }, { type: 'homework', score: 51.621532832724846 f
+db.graves.updateOne({'_id':'ObjectId("56d5f7eb604eb380b0d8d9c8")'},$set{ type: 'exam', score: 91.97520018439039 },)
+db.grades.findOne()
+use sample
+it
+db.zips.find({"state":"MA"})
+db.zips.findOne({"state":'MA'})
+db.zips.findOne({"state":MA})
+db.zips.findOne({"pop":3450})
+db.zips.findOne()
+use sample
+show dbs
+db.zips.findOne()
+show dbs commands.findOne()
+show dbs commandb.zips.findOne()
+show dbs commands.findOne()
+show dbs command
